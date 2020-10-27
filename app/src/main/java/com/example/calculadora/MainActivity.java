@@ -6,67 +6,99 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
-
+    String cadena="";
+    double resultado=0;
+    double numero=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-    public void clicknumero(View view) {
-        TextView resultado =(TextView) findViewById(R.id.txt_resultado);
-        int numero;
-        switch (view.getId()){
+    public void clicNumero(View view){
+        TextView pantalla= findViewById(R.id.txt_resultado);
+        switch (view.getId()) {
             case R.id.btn0:
-                numero= 0;
-                resultado.setText(resultado.getText().toString()+numero);
+                cadena = cadena + "0";
+                pantalla.setText(cadena);
                 break;
             case R.id.btn1:
-                numero= 1;
-                resultado.setText(+numero);
-                resultado.setText(resultado.getText().toString()+numero);
+                cadena = cadena + "1";
+                pantalla.setText(cadena);
                 break;
             case R.id.btn2:
-                numero= 2;
-                resultado.setText(+numero);
-                resultado.setText(resultado.getText().toString()+numero);
+                cadena=cadena+"2";
+                pantalla.setText(cadena);
                 break;
             case R.id.btn3:
-                numero= 3;
-                resultado.setText(+numero);
-                resultado.setText(resultado.getText().toString()+numero);
+                cadena=cadena+"3";
+                pantalla.setText(cadena);
                 break;
             case R.id.btn4:
-                numero= 4;
-                resultado.setText(+numero);
-                resultado.setText(resultado.getText().toString()+numero);
+                cadena=cadena+"4";
+                pantalla.setText(cadena);
                 break;
             case R.id.btn5:
-                numero= 5;
-                resultado.setText(+numero);
-                resultado.setText(resultado.getText().toString()+numero);
+                cadena=cadena+"5";
+                pantalla.setText(cadena);
                 break;
             case R.id.btn6:
-                numero= 6;
-                resultado.setText(+numero);
-                resultado.setText(resultado.getText().toString()+numero);
+                cadena=cadena+"6";
+                pantalla.setText(cadena);
                 break;
             case R.id.btn7:
-                numero= 7;
-                resultado.setText(+numero);
-                resultado.setText(resultado.getText().toString()+numero);
+                cadena=cadena+"7";
+                pantalla.setText(cadena);
                 break;
             case R.id.btn8:
-                numero= 8;
-                resultado.setText(+numero);
-                resultado.setText(resultado.getText().toString()+numero);
+                cadena=cadena+"8";
+                pantalla.setText(cadena);
                 break;
             case R.id.btn9:
-                numero= 9;
-                resultado.setText(+numero);
-                resultado.setText(resultado.getText().toString()+numero);
+                cadena=cadena+"9";
+                pantalla.setText(cadena);
+                break;
+            case R.id.btn_decimal:
+                cadena=cadena+".";
+                pantalla.setText(cadena);
+                break;
+        }
+        numero=Double.parseDouble(cadena);
+    }
+    public void clicoperacion(View view){
+        TextView pantalla= findViewById(R.id.txt_resultado);
+        switch(view.getId()){
+            case R.id.btn_suma:
+                this.resultado = resultado+numero;
+                cadena="";
+                break;
+            case R.id.btn_resta:
+                this.resultado=numero-resultado;
+                cadena="";
+                break;
+            case R.id.btn_multi:
+                this.resultado= resultado*numero;
+                cadena="";
+                break;
+            case R.id.btn_div:
+                this.resultado=resultado/numero;
+                cadena="";
+                break;
+           // case R.id.btn_porcent:
+             //   resultado=resultado(numero*0.01);
+               // cadena="";
+                //break;
+            case R.id.btn_igual:
+                pantalla.setText(String.valueOf(this.resultado));
+                break;
+            case R.id.btn_borrar:
+                pantalla.setText("0");
+                cadena="";
+                resultado=0;
+                numero=0;
                 break;
         }
     }
