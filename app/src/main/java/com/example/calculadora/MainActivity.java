@@ -72,25 +72,62 @@ public class MainActivity extends AppCompatActivity {
         TextView pantalla= findViewById(R.id.txt_resultado);
         switch(view.getId()){
             case R.id.btn_suma:
-                this.resultado = resultado+numero;
+                if(cadena!="") {
+                    if(resultado==0){
+                        this.resultado= numero;
+                    }else {
+                        this.resultado = resultado + numero;
+                    }
+                }
                 cadena="";
+                pantalla.setText("0");
                 break;
             case R.id.btn_resta:
-                this.resultado=numero-resultado;
+                if(cadena!="") {
+                    if(resultado==0){
+                        this.resultado= numero;
+                    }else {
+                        this.resultado = resultado - numero;
+                    }
+                }
                 cadena="";
+                pantalla.setText("0");
                 break;
             case R.id.btn_multi:
-                this.resultado= resultado*numero;
+                if(cadena!="") {
+                    if(resultado==0){
+                        this.resultado= numero;
+                    }else {
+                        this.resultado = resultado * numero;
+                    }
+                }
                 cadena="";
+                pantalla.setText("0");
                 break;
             case R.id.btn_div:
-                this.resultado=resultado/numero;
+                if(cadena!="") {
+                    if(resultado==0){
+                        this.resultado= numero;
+                    }else {
+                        this.resultado = resultado / numero;
+                    }
+                }
                 cadena="";
+                pantalla.setText("0");
                 break;
-           // case R.id.btn_porcent:
-             //   resultado=resultado(numero*0.01);
-               // cadena="";
-                //break;
+            case R.id.btn_porcent:
+                if(cadena!="") {
+                    if(resultado==0){
+                        this.resultado= numero;
+                      }
+                    else {
+                        this.resultado = resultado * (numero *0.01);
+                    }
+                }
+                cadena="";
+                numero=0;
+                pantalla.setText("0");
+                break;
             case R.id.btn_igual:
                 pantalla.setText(String.valueOf(this.resultado));
                 break;
